@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scope</title>
     <script>
-        let globalscope="This is a global scope";
-        function test(){
-            let localscope="This is a local scope";
-            console.log(localscope);
-            console.log(globalscope);
-        }
-        test();
-        console.log(globalscope);
-        console.log(localscope);// This will cause an error because localscope is not defined in this scope
-    </script>
+let globalscope = "This is a global scope";
+
+test();
+
+function test(){
+    let localscope = "This is a local scope";
+    let globalscope = "changed";
+    console.log(localscope);
+    console.log(globalscope);
+}
+
+
+console.log(globalscope);
+
+{
+    var blockscope = "This is a block scope";
+    console.log(blockscope);
+}
+
+console.log(blockscope);
+
+
+</script>
+
 </head>
 <body>
 </body>
