@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objects</title>
+    <script>
+        let student={
+            name:"Saman",
+            age:25,
+            sayhi:function(){
+                console.log("Hello");
+            }
+        }
+        let student2={
+            name:"Nimal",
+            age:24,
+            sayhi:function(){
+                console.log("Hi there");
+            }
+        }
+        console.log(student.name);
+        console.log(student.age);
+        student.sayhi();
+        student.age=26;
+        console.log(student.age);
+        student.address="Kathmandu";
+        console.log(student.address);
+        console.log(Object.keys(student));
+        console.log(Object.values(student));
+        console.log(Object.entries(student));
+
+        Object.assign(student, student2);
+        console.log(student2);
+        console.log(student.name);
+
+
+    </script>
 </head>
 <body>
+
 
 </body>
 </html>
