@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional and Logical Operators in JavaScript</title>
+</head>
+<body>
+    <label for="input1">Input 1</label>
+    <input type="text" id="input1">
+    <br><br>
+    <label for="input2">Input 2</label>
+    <input type="text" id="input2">
+    <br><br>
+    <button onclick="compare()">Compare</button>
+    <div id="result"></div>
+    <script>
+        function compare(){
+        let val1=document.getElementById("input1");
+        let val2=document.getElementById("input2");
+        let resultDiv=document.getElementById("result");
+        if(typeof val1 === "string" && typeof val2 === "string"){
+            resultDiv.innerHTML="Both inputs are strings.";
+        } else if(val1.value > val2.value || val1.value === val2.value){
+            resultDiv.innerHTML="Input 1 is greater than or equal to Input 2.";
+        } else {
+            resultDiv.innerHTML="Input 1 is less than Input 2.";
+        }
+        }
+    </script>
+</body>
+</html>
+
+
