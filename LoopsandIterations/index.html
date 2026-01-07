@@ -72,8 +72,6 @@
 		const out = document.getElementById('out');
 		function clearOut(){ out.textContent = ''; }
 		function log(...args){ out.textContent += args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ') + '\n'; out.scrollTop = out.scrollHeight; }
-
-		// Example 1: Custom iterable
 		document.getElementById('run-range').addEventListener('click', () => {
 			clearOut();
 			const range = {
@@ -87,8 +85,6 @@
 			};
 			for (const n of range) log(n);
 		});
-
-		// Example 2: Generator pipeline
 		document.getElementById('run-pipeline').addEventListener('click', () => {
 			clearOut();
 			function* rangeGen(start = 0, end = Infinity){ for(let i=start;i<=end;i++) yield i; }
@@ -98,15 +94,11 @@
 			const pipeline = filterGen(mapGen(rangeGen(1, 10), x => x * 2), x => x % 3 === 0);
 			for (const x of pipeline) log(x);
 		});
-
-		// Example 3: Async generator
 		document.getElementById('run-asyncgen').addEventListener('click', async () => {
 			clearOut();
 			async function* asyncRange(n, delay = 150){ for (let i=0;i<n;i++){ await new Promise(r => setTimeout(r, delay)); yield i; } }
 			for await (const v of asyncRange(4, 120)) log(v);
 		});
-
-		// Example 4: Map/Set destructuring
 		document.getElementById('run-mapset').addEventListener('click', () => {
 			clearOut();
 			const m = new Map([['a',1],['b',2]]);
@@ -114,8 +106,6 @@
 			const s = new Set([1,2,3]);
 			for (const v of s.values()) log('Set', v);
 		});
-
-		// Example 5: Async concurrency (simulated tasks)
 		function fakeTask(id, delay){ return new Promise(res => setTimeout(() => res(id + ':' + delay), delay)); }
 		document.getElementById('run-seq').addEventListener('click', async () => {
 			clearOut();
@@ -134,8 +124,6 @@
 			results.forEach(r => log('done', r));
 			log('All parallel done', results);
 		});
-
-		// Example 6: Labeled loops
 		document.getElementById('run-labeled').addEventListener('click', () => {
 			clearOut();
 			outer: for (let i=0;i<3;i++){
