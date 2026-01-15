@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alerts</title>
+    </head>
+    <body>
+        <h1>Alerts</h1>
+        <p>This is the Alerts page.</p>
+    </body>
+    <h1>Message Boxes</h1>
+    <button onclick="showAlert()">
+        Alert
+    </button>
+    <button onclick="showPrompt()">
+        Prompt
+    </button>
+    <button onclick="showConfirm()">
+        Confirm
+    </button>
+    <div id="output">My text</div>
+    <script>  
+    function showAlert(){
+        alert("This is an alert message!");
+        console.log("Alert displayed");
+    }
+    function showPrompt(){
+        let userInput = prompt("Please enter some text:", "Default text");
+        if (userInput !== null) {
+            document.getElementById("output").innerText = "You entered: " + userInput;
+            console.log("User input received: " + userInput);
+        } else {
+            console.log("User cancelled the prompt.");
+        }
+    }
+    function showConfirm(){
+        let userConfirmed = confirm("Do you confirm this action?");
+        if (userConfirmed) {
+            document.getElementById("output").innerText = "User confirmed the action.";
+            console.log("User confirmed the action.");
+        } else {
+            document.getElementById("output").innerText = "User cancelled the action.";
+            console.log("User cancelled the action.");
+        }
+    }
+
+
+    </script>
+
+</html>
